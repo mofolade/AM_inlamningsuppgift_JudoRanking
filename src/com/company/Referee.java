@@ -15,6 +15,11 @@ public class Referee extends Person implements Serializable, Comparable<Referee>
         this.YOB = YOB;
     }
 
+    @Override
+    public String role() {
+        return View.refereeLabel;
+    }
+
     enum SortBy{
         REFEREEID,
         FAMILYNAME,

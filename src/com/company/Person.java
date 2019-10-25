@@ -22,6 +22,9 @@ public abstract class Person implements Serializable {
         this.personID = personID;
     }
 
+    //abstract method
+    public abstract String role();
+
     public String getFamilyName(){
         return this.familyName;
     }

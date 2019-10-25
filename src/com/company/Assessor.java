@@ -9,7 +9,11 @@ public class Assessor extends Person implements Comparable<Assessor>{
 
     Assessor(String familyName, String givenName, String nation, String licence, Integer personID) {
         super(familyName, givenName, nation, licence, personID);
+    }
 
+    @Override
+    public String role() {
+        return View.assessorLabel;
     }
 
     enum SortBy{

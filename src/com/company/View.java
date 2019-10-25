@@ -21,6 +21,9 @@ public class View {
     protected static final String competitionLabel = "Competition";
     protected static final String classificationLabel = "Classification";
     protected static final String assessorLabel = "Assessor";
+    protected static final String inactiveLabel = "Inactive";
+    protected static final String activeLabel = "Active";
+    protected static final String mainAssessorLabel = "Main assessor";
     protected static final String floatMaskLabel = " x,x";
     protected static final String orderByCompetitionMenu = "ORDER by ID (1)  |   name (2)";
     protected static final String orderByClassificationMenu = "ORDER by RefereeID (1)  |   competitionID (2)  |   Classification (3)   |   AsessorID (4)";
