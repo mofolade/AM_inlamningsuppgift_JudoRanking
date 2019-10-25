@@ -12,8 +12,6 @@ public class Task {
     }
 
     public static <T extends HasDescription> T GetChoice(T[] menuItems, int choiceIndex){
-
-
         return menuItems[choiceIndex];
     }
 }

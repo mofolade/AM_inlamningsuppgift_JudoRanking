@@ -40,22 +40,6 @@ public class FileUtils {
     }
 
     /**
-     * Write some lines to a file
-     * @param saveFileName name of file
-     * @param lines All data.
-     */
-    public static void writeAllLines(String saveFileName, List lines){
-        lines.add("Classification");
-
-        try {
-            Path path = Paths.get("./"+saveFileName);
-            Files.write(path, lines);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * Write the contents of the array to a file.
      * @param listOfCompetition all competitions
      * @param listOfReferee all referees
@@ -122,7 +106,7 @@ public class FileUtils {
         return refereeFromFile;
     }
 
-    public static ArrayList<Assessor> readAssessorObjects(String fileName){
+    /*public static ArrayList<Assessor> readAssessorObjects(String fileName){
         ObjectInputStream objectinputstream = null;
         ArrayList<Assessor> assessorFromFile = null;
         //ArrayList<Referee> arraylist= new ArrayList<Referee>();
@@ -137,7 +121,7 @@ public class FileUtils {
         }
         //return referee;
         return assessorFromFile;
-    }
+    }*/
 
 
     private static void assertTrue(boolean b) {

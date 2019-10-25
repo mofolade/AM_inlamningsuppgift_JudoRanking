@@ -8,16 +8,7 @@ public class NumberBoard {
         //board = newBoard();
     }
 
-    public String[][] getBoard() {
-        return board;
-    }
-
-    public void setBoard(String[][] board) {
-        this.board = board;
-    }
-
     public String[][] addNumberBoard(int randNumber){
-        //String[][] boardOne = new String[7][6];
 
         if (randNumber == 0){
             String[][] board = {
