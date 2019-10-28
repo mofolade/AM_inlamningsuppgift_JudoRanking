@@ -30,7 +30,7 @@ public class Referee extends Person implements Serializable, Comparable<Referee>
     }
 
     public String toString(){
-        return "["+getPersonID()+"] " + getGivenName() + " " + getFamilyName() + " "+getNation()+" "+getLicence()+" "+getYOB();
+        return "["+getPersonID()+"] " + getGivenName() + " " + getFamilyName().toUpperCase() + " "+getNation()+" "+getLicence()+" "+getYOB()+" "+role();
     }
 
     public Integer getYOB(){

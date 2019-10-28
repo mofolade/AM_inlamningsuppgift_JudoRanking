@@ -1,7 +1,5 @@
 package com.company;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
@@ -74,6 +72,6 @@ public abstract class Person implements Serializable {
     }
 
     public String toString() {
-        return "["+personID+"] " + givenName + " " + familyName + " "+nation+" "+licence;
+        return "["+personID+"] " + givenName + " " + familyName.toUpperCase() + " "+nation+" "+licence;
     }
 }
