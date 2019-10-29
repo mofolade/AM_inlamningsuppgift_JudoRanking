@@ -12,8 +12,8 @@ public class RankingSystemTest {
 
     @Test
     public void addCompetition() {
-        //compTestCup.add(new Competition("Test Cup", "Sweden", 2019, 10, 1));
-        //assertNotNull(compTestCup);
+        compTestCup.add(new Competition("Test Cup", "Sweden", 2019, 10, 1));
+        assertNotNull(compTestCup);
     }
 
     @Test
