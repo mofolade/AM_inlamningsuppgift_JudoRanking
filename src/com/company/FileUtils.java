@@ -61,11 +61,6 @@ public class FileUtils {
             objectOutputStream.close();
             fileOutputStream.close();
 
-            fileOutputStream = new FileOutputStream("AssessorData.ser", false);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(listOfAssessor);
-            objectOutputStream.close();
-            fileOutputStream.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -104,24 +99,6 @@ public class FileUtils {
         //return referee;
         return refereeFromFile;
     }
-
-    /*public static ArrayList<Assessor> readAssessorObjects(String fileName){
-        ObjectInputStream objectinputstream = null;
-        ArrayList<Assessor> assessorFromFile = null;
-        //ArrayList<Referee> arraylist= new ArrayList<Referee>();
-
-        try {
-            FileInputStream streamIn = new FileInputStream(fileName);
-            objectinputstream = new ObjectInputStream(streamIn);
-            assessorFromFile = (ArrayList<Assessor>) objectinputstream.readObject();
-            objectinputstream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //return referee;
-        return assessorFromFile;
-    }*/
-
 
     private static void assertTrue(boolean b) {
     }

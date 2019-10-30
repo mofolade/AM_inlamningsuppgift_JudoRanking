@@ -502,8 +502,8 @@ public class RankingSystem {
                 for (String row : rows) {
                     String[] parts = row.split(";");
                     //compName,country,year,month,competitionID
-                    assessorArrayList.add(new Assessor(parts[0], parts[1], parts[2], parts[3], assessorID));
-                    System.out.println("["+assessorID+"] "+parts[1]+" "+parts[0]+" "+parts[2]+" "+parts[3]);
+                    assessorArrayList.add(new Assessor(parts[0], parts[1], parts[2], parts[3], assessorID, parts[4], 1));
+                    System.out.println("["+assessorID+"] "+parts[1]+" "+parts[0]+" "+parts[2]+" "+parts[3]+" "+parts[4]);
                     assessorID++;
                 }
                 Collections.shuffle(assessorArrayList);
@@ -526,6 +526,8 @@ public class RankingSystem {
         Integer YOB = 0;
         boolean isLicence = false;
         boolean isUserNumber = false;
+        Integer addressType = 1; //email
+        String address;
 
         Scanner input = new Scanner(System.in);
 
@@ -591,8 +593,12 @@ public class RankingSystem {
             Referee.setSortBy(Referee.SortBy.REFEREEID);
             Collections.sort(refereeArrayList);
         }else if (objectType.equals(objectTypeIdAssessor)){
+
+            //Only assessor
+            System.out.println("Enter email address:");
+            address = input.nextLine();
             //ADD new assessor to refereeArrayList.
-            assessorArrayList.add(new Assessor(fName, gName, nation, licence, assessorID));
+            assessorArrayList.add(new Assessor(fName, gName, nation, licence, assessorID, address, addressType));
             assessorID++;
             System.out.println(view.separation);
             view.showSavedMessage(view.assessorLabel);

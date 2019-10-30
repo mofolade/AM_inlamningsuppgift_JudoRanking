@@ -6,9 +6,14 @@ package com.company;
 public class Assessor extends Person implements Comparable<Assessor>{
 
     private static Assessor.SortBy sortBy = SortBy.ASSESSORID;
+    //composition has-a relationship
+    private Address addressObj;
+    private String address;
+    private Integer addressType;
 
-    Assessor(String familyName, String givenName, String nation, String licence, Integer personID) {
+    Assessor(String familyName, String givenName, String nation, String licence, Integer personID, String address, Integer addressType) {
         super(familyName, givenName, nation, licence, personID);
+        this.addressObj= new Address(address, addressType);
     }
 
     @Override
@@ -26,7 +31,11 @@ public class Assessor extends Person implements Comparable<Assessor>{
     }
 
     public String toString(){
-        return super.toString();
+        return super.toString()+" "+addressObj.getAddress();
+    }
+
+    public String getAddress(){
+        return this.addressObj.getAddress();
     }
 
     @Override

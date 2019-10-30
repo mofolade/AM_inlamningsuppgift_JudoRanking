@@ -1,2 +1,2 @@
-BODE;Stephan;GER;A
-CORTES;Jose Manuel;ESP;A
+BODE;Stephan;GER;A;sBode@judo.org;1
+CORTES;Jose Manuel;ESP;A;jCortes@judo.org;1
