@@ -15,10 +15,10 @@ import static java.lang.Integer.parseInt;
  */
 public class RankingSystem {
 
-    private List<Referee> refereeArrayList = new ArrayList<Referee>();
-    private List<Assessor> assessorArrayList = new ArrayList<Assessor>();
-    private List<Competition> competitionArrayList = new ArrayList<Competition>();
-    private ArrayList<Classification> classificationArrayList = new ArrayList<Classification>();
+    private List<Referee> refereeArrayList = new ArrayList<>();
+    private List<Assessor> assessorArrayList = new ArrayList<>();
+    private List<Competition> competitionArrayList = new ArrayList<>();
+    private ArrayList<Classification> classificationArrayList = new ArrayList<>();
 
 
     private Integer refereeID = 1;
@@ -26,23 +26,18 @@ public class RankingSystem {
     private Integer competitionID = 0;
     private Integer classificationID = 0;
 
-    public final static Integer objectTypeIdReferee = 1;
-    public final static Integer objectTypeIdCompetition = 2;
-    public final static Integer objectTypeIdClassification = 3;
-    public final static Integer objectTypeIdAssessor = 4;
+    private final static Integer objectTypeIdReferee = 1;
+    private final static Integer objectTypeIdCompetition = 2;
+    private final static Integer objectTypeIdClassification = 3;
+    private final static Integer objectTypeIdAssessor = 4;
 
     View view = View.getInstance();
     /**
      * This method print mainMenu and call method by menu choose.
      **/
     public void showMainmenu(){
-        Scanner input = new Scanner(System.in);
-        String menuChoice;
         Integer mainMenuChoice = 0;
         Integer subMenuChoice = 0;
-        String searchInput;
-
-        int userInput = 0;
 
         Data.addCountries();
 
@@ -371,7 +366,7 @@ public class RankingSystem {
      *This function checks the type of input.
      * @return Integer
      */
-    public Integer addSubMenuChoice(){
+    private Integer addSubMenuChoice(){
         Scanner scanner = new Scanner(System.in);
         Integer subMenuChoice;
         if (scanner.hasNextInt()){
@@ -388,7 +383,7 @@ public class RankingSystem {
      * This method return month from localdate.
      * @return month from local date
      */
-    public Integer getMonthFromLocalDate(){
+    private Integer getMonthFromLocalDate(){
         Date date = new Date();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
@@ -405,7 +400,7 @@ public class RankingSystem {
      * @param dataLength 1: short, 2: long
      * @return short: [personId] givenName FamilyName long: [personId] givenName FamilyName Nation /YOB/ licence
      */
-    public String getDataByPersonId(Integer objectType, Integer personId, Integer dataLength){
+    private String getDataByPersonId(Integer objectType, Integer personId, Integer dataLength){
 
         if(objectType.equals(objectTypeIdReferee)){
             //REFEREE
@@ -441,7 +436,7 @@ public class RankingSystem {
      * @param fileName the name of the file for saving data
      * @param objectType 1: referee,2: competition,3: classification, 4: assessor
      */
-    public void addDataFromFile(String fileName,Integer objectType){
+    private void addDataFromFile(String fileName,Integer objectType){
         List<String> rows = null;
         System.out.print(view.starSeparation+" ADD ");
         if (objectType.equals((objectTypeIdReferee))){
@@ -518,7 +513,7 @@ public class RankingSystem {
      * This method add new referee/assessor object to referee/assessor ArrayList.
      * @param objectType 1: referee, 4: assessor
      */
-    public void addPerson(Integer objectType){
+    private void addPerson(Integer objectType){
         String fName; String objectTypeLabel="";
         String gName;
         String licence; //???char???
@@ -609,7 +604,7 @@ public class RankingSystem {
     /**
      * This method add new competition object to competition ArrayList.
      */
-    public void addCompetition(){
+    private void addCompetition(){
         String compName;
         Scanner input = new Scanner(System.in);
         int year;
@@ -648,7 +643,7 @@ public class RankingSystem {
      * This method add new classification object to classification ArrayList.
      *
      */
-    public void addClassification(){
+    private void addClassification(){
         Scanner input = new Scanner(System.in);
         try {
             showPersonList(objectTypeIdReferee);
@@ -677,7 +672,7 @@ public class RankingSystem {
      * This method print referee/assessor list from referee/assessor ArrayList.
      * @param objectType 1: Referee, 4: Assessor
      */
-    public void showPersonList(Integer objectType){
+    private void showPersonList(Integer objectType){
         System.out.println(view.separation);
         System.out.print(view.starSeparation+" ");
         if (objectType.equals(objectTypeIdReferee)){
@@ -699,7 +694,7 @@ public class RankingSystem {
     /**
      * This method print competition list from competition ArrayList.
      */
-    public void showCompetition(){
+    private void showCompetition(){
         System.out.println(view.starSeparation+" "+view.competitionLabel+" LIST "+view.starSeparation);
         System.out.println(view.separation);
         for(Competition competition : competitionArrayList){
@@ -740,7 +735,7 @@ public class RankingSystem {
      * This metod calls metod för edit by objectType.
      * @param objectType  1: referee, 2: competition, 3: classification, 4: assessor
      */
-    public void editObject(Integer objectType){
+    private void editObject(Integer objectType){
         Integer personId;
         Scanner input = new Scanner(System.in);
         System.out.println(view.starSeparation+" EDIT "+view.starSeparation);
@@ -807,7 +802,7 @@ public class RankingSystem {
      * @param objectType  1: referee, 4: assessor
      * @param personID ID of person
      */
-    public void editPerson (Integer objectType, int personID){
+    private void editPerson (Integer objectType, int personID){
         String userString="";
         Scanner scanner = new Scanner(System.in);
 
@@ -865,7 +860,7 @@ public class RankingSystem {
      * This metod edit attributs (name/year/month) of competition object in competition ArrayList.
      * @param competitionID ID of competition.
      */
-    public void editCompetition(Integer competitionID){
+    private void editCompetition(Integer competitionID){
         String userString="";
         Scanner scanner = new Scanner(System.in);
 
@@ -905,7 +900,7 @@ public class RankingSystem {
      * This metod edit classification in classification ArrayList.
      * @param classificationID Id of classification
      */
-    public void editClassification(Integer classificationID){
+    private void editClassification(Integer classificationID){
         Scanner input = new Scanner(System.in);
         try {
             System.out.println("New " + view.classificationLabel + " ("+view.floatMaskLabel+"):");
@@ -926,7 +921,7 @@ public class RankingSystem {
      * This metod calls metod för delete by objectType.
      * @param objectType 1: referee, 2: competition, 3: classification, 4: assessor
      */
-    public void deleteObject(Integer objectType){
+    private void deleteObject(Integer objectType){
         Scanner input = new Scanner(System.in);
         Integer userInput;
         //Referee
@@ -1003,7 +998,7 @@ public class RankingSystem {
      * the classifications related to the referee.
      * @param refereeID Referee's Id
      */
-    public void deleteReferee(Integer refereeID){
+    private void deleteReferee(Integer refereeID){
         boolean isDeleted = false;
         try {
             for (int i = 0; i < classificationArrayList.size(); i++) {
@@ -1035,7 +1030,7 @@ public class RankingSystem {
      * This method deletes an assessor object from assessor Arraylist by assessorID.
      * @param assessorID Assessor's ID
      */
-    public void deleteAssessor(Integer assessorID){
+    private void deleteAssessor(Integer assessorID){
         boolean isDeleted = false;
         try {
             for (int i = 0; i < assessorArrayList.size(); i++) {
@@ -1060,7 +1055,7 @@ public class RankingSystem {
      * the classifications related to the competition.
      * @param competitionID competition's ID
      */
-    public void deleteCompetition(Integer competitionID){
+    private void deleteCompetition(Integer competitionID){
         boolean isDeleted = false;
         try {
             for (int i = 0; i < classificationArrayList.size(); i++) {
@@ -1092,7 +1087,7 @@ public class RankingSystem {
      * This method deletes an classification object from classification Arraylist by classificationID..
      * @param classificationID id of classification
      */
-    public void deleteClassification(Integer classificationID){
+    private void deleteClassification(Integer classificationID){
         boolean isDeleted = false;
         try{
             classificationArrayList.remove(classificationID);
@@ -1121,7 +1116,7 @@ public class RankingSystem {
      * This metod search referee or assessor in referee or assessor ArrayList. Print resultslist.
      * @param objectType 1: referee, 4: assessor
      */
-    public void searchPersonByData(Integer objectType){
+    private void searchPersonByData(Integer objectType){
         boolean isFound = false;
         boolean isFoundAndWrite = false;
         Scanner input = new Scanner(System.in);
@@ -1177,7 +1172,7 @@ public class RankingSystem {
     /**
      * This metod search competition in competition ArrayList by competition name. Print resultslist.
      */
-    public void searchCompetition(){
+    private void searchCompetition(){
         Scanner input = new Scanner(System.in);
 
         System.out.println(view.competitionLabel.toUpperCase());
@@ -1198,7 +1193,7 @@ public class RankingSystem {
     /**
      * This metod search classification in classification ArrayList by classification. Print resultslist.
      */
-    public void searchClassification(){
+    private void searchClassification(){
         Scanner input = new Scanner(System.in);
 
         System.out.println(view.separation);
@@ -1222,7 +1217,7 @@ public class RankingSystem {
      * This method order ArrayList by ID/name/Classification.
      * @param objectType 1: referee, 2: competition, 3: classification, 4: assessor
      */
-    public void orderByList(Integer objectType){
+    private void orderByList(Integer objectType){
         Scanner scanner = new Scanner(System.in);
         Integer userInput;
 
@@ -1300,7 +1295,7 @@ public class RankingSystem {
     /**
      * This metod print referees and competitions from file.
      */
-    public void  readFromFile(){
+    private void  readFromFile(){
         System.out.println(view.starSeparation+" "+view.competitionLabel.toUpperCase()+" LIST FROM FILE "+view.starSeparation);
         System.out.println(view.separation);
         try {
@@ -1328,7 +1323,7 @@ public class RankingSystem {
      * This metod print all countries from countriesArrayList.
      */
     private void printListCountries(){
-        Integer count = 0;
+        int count = 0;
         // Print list of countries.
         for(int i = 0; i < Data.countriesArrayList.size(); i++){
             System.out.print(Data.countriesArrayList.get(i));
